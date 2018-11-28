@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexText"
+             x:Class="FlexText.MainPage"
+             x:Name="This">
+    
+    <ContentPage.BindingContext>
+        <local:MainPageViewModel />
+    </ContentPage.BindingContext>
+    
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".25*" />
+            <RowDefinition Height=".25*" />
+            <RowDefinition Height=".25*" />
+            <RowDefinition Height=".25*" />
+        </Grid.RowDefinitions>
+        
+        <local:FlexTextContentView x:Name="someBitch" Text="{Binding Text}" />
+        
+        <Button x:Name="one" Text="FirstButton" Command="{Binding OnButtonClick}" CommandParameter="{Binding Source={x:Reference one}, Path=Text}" Grid.Row="1"/>
+        <Button x:Name="two" Text="Second" Command="{Binding OnButtonClick}" CommandParameter="{Binding Source={x:Reference two}, Path=Text}" Grid.Row="2"/>
+        <Button x:Name="three" Text="FAAAAAAAAtton" Command="{Binding OnButtonClick}" CommandParameter="{Binding Source={x:Reference three}, Path=Text}" Grid.Row="3"/>
+            
+    </Grid>
+    
+</ContentPage>

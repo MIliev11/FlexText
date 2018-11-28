@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:FlexText"
+             x:Class="FlexText.HiddenLabel"
+             x:Name="This">
+    
+    <Grid BindingContext="{Binding Source={x:Reference This}}">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <Label x:Name="label" Text="{Binding Text}" HorizontalTextAlignment="Center" />
+        
+        <local:DotedViewBox HeightRequest="{Binding Source={x:Reference label}, Path=FontSize}"
+                            WidthRequest="{Binding Source={x:Reference label}, Path=Width}"
+                            IsVisible="{Binding IsHidden}"
+                            Color="{Binding HiddenColor}" />
+        
+        
+        
+    </Grid>
+    
+</ContentView>
